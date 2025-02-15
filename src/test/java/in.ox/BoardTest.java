@@ -167,6 +167,14 @@ public class BoardTest {
         for (int[] move : moves) {
             board.mark(move[0], move[1], (char) move[2]);
         }
-        assertEquals(complete, board.complete());
+        assertEquals(complete, board.completed());
+    }
+
+    @Test
+    void itDeterminesFilledCell() {
+        Board board = new Board(3);
+        board.mark(0, 0, 'X');
+        assertTrue(board.filled(0, 0));
+        assertFalse(board.filled(0, 1));
     }
 }

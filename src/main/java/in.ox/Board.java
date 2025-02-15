@@ -106,7 +106,7 @@ public class Board {
         return hasUniformLeftDiagonal() || hasUniformRightDiagonal();
     }
 
-    public boolean complete() throws OutOfBoardException {
+    public boolean completed() throws OutOfBoardException {
         for (int row = 0; row < size; ++row) {
             for (int col = 0; col < size; ++col) {
                 if (empty(row, col)) {
@@ -115,5 +115,9 @@ public class Board {
             }
         }
         return true;
+    }
+
+    public boolean filled(int row, int col) {
+        return !empty(row, col);
     }
 }
