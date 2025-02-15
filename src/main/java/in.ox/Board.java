@@ -5,6 +5,7 @@ import in.ox.exceptions.OutOfBoardException;
 public class Board {
     private final int size;
     private final char[][] cells;
+    private int occupiedCells;
 
     public Board(int size) {
         this.size = size;
@@ -30,6 +31,7 @@ public class Board {
             throw new OutOfBoardException();
         }
         cells[row][col] = symbol;
+        occupiedCells++;
     }
 
     public boolean empty(int row, int col) throws OutOfBoardException {
@@ -106,15 +108,8 @@ public class Board {
         return hasUniformLeftDiagonal() || hasUniformRightDiagonal();
     }
 
-    public boolean completed() throws OutOfBoardException {
-        for (int row = 0; row < size; ++row) {
-            for (int col = 0; col < size; ++col) {
-                if (empty(row, col)) {
-                    return false;
-                }
-            }
-        }
-        return true;
+    public boolean completed() {
+        return occupiedCells == (size * size);
     }
 
     public boolean filled(int row, int col) {
