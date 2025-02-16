@@ -4,6 +4,9 @@
   Note:: if it requires 5 cells to be uniform (in a row, col or diag) then it's said to *Gomoku*
 - Are characters limited to O|X
 - Should we show just winner character (symbol) or name of the player too?
+- Would be a rating like ELO? would it changes after every game
+- Would there be a tournament?
+- is it a Timed game?
 
 -----------------------
 Observations and Decisions:
